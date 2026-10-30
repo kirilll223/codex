@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141414" />
+    <meta name="description" content="Два пути. Один клик. Выбирай свой вайб: Андрюха или Лена." />
+    <title>ВЫБЕРИ СЕБЯ — Андрюха или Лена</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" /></symbol>
+      <symbol id="icon-back" viewBox="0 0 24 24"><path d="m10 5-7 7 7 7M3 12h18" /></symbol>
+      <symbol id="icon-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5V4ZM15 8c2 2 2 6 0 8m4-12c4 4 4 12 0 16" /></symbol>
+      <symbol id="icon-mute" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5V4Zm5 5 6 6m0-6-6 6" /></symbol>
+      <symbol id="icon-spark" viewBox="0 0 32 32"><path d="M16 2v28M2 16h28M6 6l20 20M6 26 26 6" /></symbol>
+      <symbol id="icon-replay" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7" /></symbol>
+    </svg>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Выбери себя — на главную"><svg class="brand-mark" aria-hidden="true"><use href="#icon-spark" /></svg> НУ ТЫ И ТИП</a>
+        <span class="topbar-caption">НЕ САЙТ. СОСТОЯНИЕ ДУШИ.</span>
+        <button class="sound-button" id="sound-button" aria-pressed="false" aria-label="Включить звук">
+          <svg aria-hidden="true"><use href="#icon-mute" /></svg><span id="sound-label">ЗВУК ВЫКЛ.</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="selection" id="selection" aria-labelledby="selection-title">
+          <div class="intro">
+            <p class="eyebrow"><span class="live-dot"></span> ВЫБОР ПЕРСОНАЖА</p>
+            <h1 id="selection-title">ВЫБЕРИ <span>СЕБЯ<svg class="title-star" aria-hidden="true"><use href="#icon-spark" /></svg></span></h1>
+            <p class="intro-caption">Два пути. Один клик. <span>Никакого осуждения.</span></p>
+          </div>
+
+          <div class="character-grid">
+            <button class="character character--andrey" data-character="andrey" aria-label="Выбрать Андрюху">
+              <span class="character-art" role="img" aria-label="Парни с битами на фоне пальм, арт в стиле GTA"></span>
+              <span class="character-shade"></span>
+              <span class="card-top"><span class="card-number">01 <span>/</span> STREET MODE</span><span class="round-arrow"><svg aria-hidden="true"><use href="#icon-arrow" /></svg></span></span>
+              <span class="character-info">
+                <span class="character-tag"><span></span> РАЙОН НА СВЯЗИ</span>
+                <span class="character-name">АНДРЮХА</span>
+                <span class="character-description">Свой пацан. Свои правила.</span>
+                <span class="card-bottom"><span>ЭТО Я</span><svg class="bottom-arrow" aria-hidden="true"><use href="#icon-arrow" /></svg></span>
+              </span>
+            </button>
+
+            <span class="versus" aria-hidden="true">ИЛИ</span>
+
+            <button class="character character--lena" data-character="lena" aria-label="Выбрать Лену">
+              <span class="character-art" role="img" aria-label="Девушка из мема «танцуй, пантера» у моря на закате"></span>
+              <span class="character-shade"></span>
+              <span class="card-top"><span class="card-number">02 <span>/</span> PANTHER MODE</span><span class="round-arrow"><svg aria-hidden="true"><use href="#icon-arrow" /></svg></span></span>
+              <span class="character-info">
+                <span class="character-tag"><span></span> ТАНЦУЙ, ПАНТЕРА</span>
+                <span class="character-name">ЛЕНА</span>
+                <span class="character-description">Скромность? Не в этот раз.</span>
+                <span class="card-bottom"><span>ЭТО Я</span><svg class="bottom-arrow" aria-hidden="true"><use href="#icon-arrow" /></svg></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="selection-footer"><p>Выбирай сердцем. <span>Или чем получится.</span></p><span class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd> выбрать <kbd>Enter</kbd> войти</span></div>
+        </section>
+
+        <section class="scene" id="scene" hidden aria-labelledby="scene-title">
+          <div class="scene-background" id="scene-background"></div>
+          <video class="scene-video" id="scene-video" playsinline loop muted preload="none" hidden></video>
+          <div class="scene-youtube-wrap" id="scene-youtube-wrap" hidden><div id="scene-youtube"></div></div>
+          <div class="scene-shade"></div>
+          <div class="scene-top"><button class="back-button" id="back-button"><svg aria-hidden="true"><use href="#icon-back" /></svg> ДРУГОЙ ВАЙБ</button><span class="scene-badge" id="scene-badge"></span></div>
+          <div class="scene-content"><p class="scene-kicker" id="scene-kicker"></p><h2 id="scene-title" tabindex="-1"></h2><p class="scene-caption" id="scene-caption"></p><div class="scene-actions"><button class="replay-button" id="replay-button"><svg aria-hidden="true"><use href="#icon-replay" /></svg> ЕЩЁ РАЗОК</button><a class="original-video-link" id="original-video-link" href="https://www.youtube.com/watch?v=57vv4meBMB8" target="_blank" rel="noopener noreferrer" hidden>РОЛИК НА YOUTUBE <svg aria-hidden="true"><use href="#icon-arrow" /></svg></a></div></div>
+          <div class="scene-bottom"><span class="scene-track"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="scene-track-name"></span></span><span>100% ТВОЙ ВАЙБ</span></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>© 2026 НУ ТЫ И ТИП</span><span>СДЕЛАНО ПО ПРИКОЛУ <svg class="footer-spark" aria-hidden="true"><use href="#icon-spark" /></svg></span><button id="about-button">ЧТО ЭТО БЫЛО? <svg aria-hidden="true"><use href="#icon-arrow" /></svg></button></footer>
+    </div>
+
+    <dialog id="about-dialog"><button class="dialog-close" id="close-about" aria-label="Закрыть">×</button><svg class="about-star" aria-hidden="true"><use href="#icon-spark" /></svg><h2>ПРОСТО ПО ПРИКОЛУ.</h2><p>Здесь нет неправильного выбора. Сегодня ты Андрюха, завтра — Лена. Выбирай, переключайся и не воспринимай всё слишком серьёзно.</p><button class="dialog-ok" id="about-ok">ПОНЯЛ, ПРИНЯЛ <svg aria-hidden="true"><use href="#icon-arrow" /></svg></button></dialog>
+    <noscript><p class="noscript">Для выбора персонажа включи JavaScript в браузере.</p></noscript>
+  </body>
+</html>
